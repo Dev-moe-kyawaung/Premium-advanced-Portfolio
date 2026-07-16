@@ -35,3 +35,35 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - Network
 
+ first, fallback to cache
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    fetch(event.request)
+      .then(response => {
+        // Clone the response
+        const responseToCache = response.clone()
+
+        // Cache successful responses
+        if (response.status === 200) {
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache)
+          })
+        }
+
+        return response
+      })
+      .catch(() => {
+        // If network fails, try cache
+        return caches.match(event.request)
+          .then(response => {
+            if (response) {
+              return response
+            }
+            // Return offline page for navigation requests
+            if (event.request.mode === 'navigate') {
+              return caches.match('/offline.html')
+            }
+          })
+      })
+  )
+})
