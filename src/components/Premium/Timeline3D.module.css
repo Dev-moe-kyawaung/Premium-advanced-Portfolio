@@ -1,0 +1,162 @@
+/* src/components/Premium/Timeline3D.module.css */
+.timeline3D {
+  position: relative;
+  padding: var(--spacing-3xl) 0;
+  perspective: 1000px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, 
+    var(--primary-cyan) 0%, 
+    var(--primary-magenta) 50%,
+    var(--primary-purple) 100%
+  );
+  transform: translateX(-50%);
+}
+
+.timelineEvent {
+  position: relative;
+  margin-bottom: var(--spacing-3xl);
+  transform-style: preserve-3d;
+}
+
+.timelineEvent.left {
+  padding-right: calc(50% + 60px);
+}
+
+.timelineEvent.right {
+  padding-left: calc(50% + 60px);
+}
+
+.eventCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.eventCard::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transform: rotate(45deg);
+}
+
+.left .eventCard::before {
+  right: -11px;
+  top: 30px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.right .eventCard::before {
+  left: -11px;
+  top: 30px;
+  border-right: none;
+  border-top: none;
+}
+
+.eventCard:hover {
+  border-color: var(--primary-cyan);
+  box-shadow: 0 15px 60px rgba(0, 240, 255, 0.3);
+  transform: translateZ(20px);
+}
+
+.eventDate {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-md);
+}
+
+.eventContent h4 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.eventContent p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.eventTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--primary-cyan);
+}
+
+.eventDot {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg-card);
+  border: 4px solid var(--primary-cyan);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.dotInner {
+  width: 100%;
+  height: 100%;
+  background: var(--primary-cyan);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .timelineLine {
+    left: 30px;
+  }
+
+  .timelineEvent.left,
+  .timelineEvent.right {
+    padding-left: 60px;
+    padding-right: 0;
+  }
+
+  .eventCard::before {
+    left: -11px !important;
+    right: auto !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-left: 1px solid var(--border-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+
+  .eventDot {
+    left: 30px;
+  }
+}
+
