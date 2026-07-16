@@ -1,0 +1,5 @@
+/* src/components/Premium/ParallaxSection.module.css */
+.parallaxSection {
+  position: relative;
+  overflow: hidden;
+}
