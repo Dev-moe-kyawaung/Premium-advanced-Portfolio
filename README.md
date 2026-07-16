@@ -103,9 +103,9 @@
 ### Quick Start
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Dev-moe-kyawaung/portfolio.git
-cd portfolio
+---# 1. Clone the repository
+git clone https://github.com/Dev-moe-kyawaung/Premium-advanced-Portfolio.git
+cd Premium-advanced-Portfolio
 
 # 2. Install dependencies
 npm install
