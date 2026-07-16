@@ -1,0 +1,18 @@
+/* src/components/Premium/MorphingText.module.css */
+.morphingText {
+  display: inline-flex;
+  position: relative;
+  min-width: 300px;
+  justify-content: center;
+}
+
+.word {
+  position: absolute;
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-align: center;
+}
+
