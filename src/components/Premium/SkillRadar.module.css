@@ -1,0 +1,22 @@
+/* src/components/Premium/SkillRadar.module.css */
+.radarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .radarContainer {
+    padding: var(--spacing-lg);
+  }
+}
+
