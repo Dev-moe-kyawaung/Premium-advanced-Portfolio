@@ -1,0 +1,227 @@
+/* src/components/Premium/AdvancedCarousel.module.css */
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  perspective: 2000px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slideContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-2xl);
+}
+
+.slideImage {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.slideImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expandBtn {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--primary-cyan);
+  border-radius: var(--radius-md);
+  color: var(--primary-cyan);
+  cursor: pointer;
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.slideImage:hover .expandBtn {
+  opacity: 1;
+}
+
+.slideInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.slideInfo h3 {
+  font-size: var(--font-size-4xl);
+  line-height: 1.2;
+}
+
+.slideInfo p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: var(--font-size-lg);
+}
+
+.slideTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.tag {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--primary-cyan);
+}
+
+.slideLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--primary-cyan);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.slideLink:hover {
+  gap: var(--spacing-md);
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--primary-cyan);
+  border-radius: 50%;
+  color: var(--primary-cyan);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  transition: var(--transition-base);
+  z-index: 10;
+}
+
+.navBtn:hover {
+  background: var(--primary-cyan);
+  color: var(--bg-dark);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+}
+
+.prevBtn {
+  left: var(--spacing-lg);
+}
+
+.nextBtn {
+  right: var(--spacing-lg);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.dot {
+  width: 50px;
+  height: 4px;
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.dotInner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary-cyan), var(--primary-magenta));
+  transition: width 5s linear;
+}
+
+.dot.active {
+  border-color: var(--primary-cyan);
+}
+
+.dot.active .dotInner {
+  width: 100%;
+}
+
+.counter {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--primary-cyan);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  color: var(--primary-cyan);
+}
+
+@media (max-width: 1024px) {
+  .slideContent {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    height: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navBtn {
+    width: 45px;
+    height: 45px;
+    font-size: var(--font-size-base);
+  }
+
+  .prevBtn {
+    left: var(--spacing-sm);
+  }
+
+  .nextBtn {
+    right: var(--spacing-sm);
+  }
+
+  .carousel {
+    height: 600px;
+  }
+}
+
