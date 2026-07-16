@@ -1,0 +1,37 @@
+/* src/components/Premium/ThreeDModel.module.css */
+.modelContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: grab;
+}
+
+.modelContainer:active {
+  cursor: grabbing;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.modelLabel {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--primary-cyan);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--primary-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
